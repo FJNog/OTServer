@@ -25,6 +25,15 @@ function Player:getWeaponType()
     return WEAPON_NONE
 end
 
+function Player:getWeaponType()
+    local weapon = self:getSlotItem(CONST_SLOT_LEFT)
+    if (weapon) then
+        return ItemType(weapon:getId()):getWeaponType()
+    end
+    return WEAPON_NONE
+end
+
+
 function getDistanceBetween(firstPosition, secondPosition)
 	local xDif = math.abs(firstPosition.x - secondPosition.x)
 	local yDif = math.abs(firstPosition.y - secondPosition.y)
