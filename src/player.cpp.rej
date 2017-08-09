@@ -1,0 +1,100 @@
+*************** Player::Player(ProtocolGame* p) :
+*** 108,113 ****
+  	lastAttackBlockType = BLOCK_NONE;
+  	addAttackSkillPoint = false;
+  	lastAttack = 0;
+  
+  	blessings = 0;
+  
+--- 108,114 ----
+  	lastAttackBlockType = BLOCK_NONE;
+  	addAttackSkillPoint = false;
+  	lastAttack = 0;
++ 	lastAttackHand = HAND_LEFT;
+  
+  	blessings = 0;
+  
+*************** void Player::getShieldAndWeapon(const Item*& shield, const Item*& weapon) const
+*** 306,336 ****
+  	shield = nullptr;
+  	weapon = nullptr;
+  
+- 	for (uint32_t slot = CONST_SLOT_RIGHT; slot <= CONST_SLOT_LEFT; slot++) {
+- 		Item* item = inventory[slot];
+- 		if (!item) {
+- 			continue;
+  		}
+  
+- 		switch (item->getWeaponType()) {
+- 			case WEAPON_NONE:
+- 				break;
+  
+- 			case WEAPON_SHIELD: {
+- 				if (!shield || (shield && item->getDefense() > shield->getDefense())) {
+- 					shield = item;
+  				}
+- 				break;
+- 			}
+  
+- 			default: { // weapons that are not shields
+- 				weapon = item;
+- 				break;
+  			}
+  		}
+  	}
+  }
+  
+  int32_t Player::getDefense() const
+  {
+  	int32_t baseDefense = 5;
+--- 312,361 ----
+  	shield = nullptr;
+  	weapon = nullptr;
+  
++ 	if (isDualWielding()) {
++ 		if (lastAttackHand == HAND_LEFT) {
++ 			shield = inventory[CONST_SLOT_RIGHT];
++ 			weapon = inventory[CONST_SLOT_LEFT];
++ 		} else {
++ 			shield = inventory[CONST_SLOT_LEFT];
++ 			weapon = inventory[CONST_SLOT_RIGHT];
+  		}
++ 	} else {
++ 		for (uint32_t slot = CONST_SLOT_RIGHT; slot <= CONST_SLOT_LEFT; slot++) {
++ 			Item *item = inventory[slot];
++ 			if (!item) {
++ 				continue;
++ 			}
+  
++ 			switch (item->getWeaponType()) {
++ 				case WEAPON_NONE:
++ 					break;
+  
++ 				case WEAPON_SHIELD: {
++ 					if (!shield || (shield && item->getDefense() > shield->getDefense())) {
++ 						shield = item;
++ 					}
++ 					break;
+  				}
+  
++ 				default: { // weapons that are not shields
++ 					weapon = item;
++ 					break;
++ 				}
+  			}
+  		}
+  	}
+  }
+  
++ bool Player::isDualWielding() const
++ {
++ 	/* Not checking dual wield because the player can't wear two weapons worn without it */
++ 	if (this->getWeapon(CONST_SLOT_LEFT, true) && this->getWeapon(CONST_SLOT_RIGHT, true)) {
++ 		return true;
++ 	}
++ 	return false;
++ }
++ 
+  int32_t Player::getDefense() const
+  {
+  	int32_t baseDefense = 5;

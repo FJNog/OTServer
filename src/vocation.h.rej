@@ -1,0 +1,19 @@
+*************** class Vocation
+*** 86,91 ****
+  			return fromVocation;
+  		}
+  
+  		float meleeDamageMultiplier, distDamageMultiplier, defenseMultiplier, armorMultiplier;
+  
+  	protected:
+--- 86,95 ----
+  			return fromVocation;
+  		}
+  
++ 		bool canDualWield() const {
++ 			return dualWield;
++ 		}
++ 
+  		float meleeDamageMultiplier, distDamageMultiplier, defenseMultiplier, armorMultiplier;
+  
+  	protected:

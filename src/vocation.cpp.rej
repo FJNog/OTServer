@@ -1,0 +1,16 @@
+*************** Vocation::Vocation(uint16_t id)
+*** 193,198 ****
+  
+  	clientId = 0;
+  	fromVocation = VOCATION_NONE;
+  
+  	gainCap = 500;
+  	gainMana = 5;
+--- 197,203 ----
+  
+  	clientId = 0;
+  	fromVocation = VOCATION_NONE;
++ 	dualWield = true;
+  
+  	gainCap = 500;
+  	gainMana = 5;

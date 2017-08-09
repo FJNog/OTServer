@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Training Monk no Def" nameDescription="a monk" race="blood" experience="0" speed="0" manacost="600">
+	<health now="100000" max="100000" />
+	<look type="57" corpse="20559" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="1" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-100" />
+	</attacks>
+  
+	<defenses armor="0" defense="0">
+		<defense name="healing" interval="2000" chance="50" min="2500" max="10000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+    
+	</defenses>
+  
+	<elements>
+    
+	</elements>
+  
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+  
+	<voices interval="5000" chance="10">
+		
+	</voices>
+  
+	<loot>
+		
+	</loot>
+
+  <script>
+    <event name="criticoMonstros"/>
+  </script>
+</monster>

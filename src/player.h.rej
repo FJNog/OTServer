@@ -1,0 +1,17 @@
+*************** class Player final : public Creature, public Cylinder
+*** 1288,1293 ****
+  		chaseMode_t chaseMode;
+  		fightMode_t fightMode;
+  		AccountType_t accountType;
+  
+  		bool secureMode;
+  		bool inMarket;
+--- 1306,1313 ----
+  		chaseMode_t chaseMode;
+  		fightMode_t fightMode;
+  		AccountType_t accountType;
++ 		attackHand_t lastAttackHand;
++ 		bool blockSkillAdvance;
+  
+  		bool secureMode;
+  		bool inMarket;

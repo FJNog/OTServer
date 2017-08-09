@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<command cmd="/reload" group="3" acctype="5" log="yes" />
+</commands>

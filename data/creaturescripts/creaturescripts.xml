@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creaturescripts>
+	<event type="login" name="PlayerLogin" script="login.lua" />
+	<event type="logout" name="PlayerLogout" script="logout.lua" />
+	<event type="login" name="FirstItems" script="firstitems.lua" />
+	<event type="login" name="OfflineTraining" script="offlinetraining.lua" />
+	<event type="login" name="RegenerateStamina" script="regeneratestamina.lua" />
+	<event type="death" name="PlayerDeath" script="playerdeath.lua" />
+	<event type="death" name="DropLoot" script="droploot.lua" />
+	<event type="extendedopcode" name="ExtendedOpcode" script="extendedopcode.lua" />
+
+  <!-- Critico/Dodge -->
+  <event type="HealthChange" name="criticoMonstros" script="criticoMonstros.lua" /> 
+  
+  <!-- Loot Encantado -->
+  <event type="login" name="statLogin" script="stats.lua"/>
+  <event type="healthchange" name="statHP" script="stats.lua"/>
+  <event type="manachange" name="statMP" script="stats.lua"/>
+  <event type="preparedeath" name="statPVE" script="stats.lua"/>
+  <event type="kill" name="statLoot" script="stats.lua"/>
+  <event type="death" name="statDeath" script="stats.lua"/>
+
+  <!-- Sistema de Fome -->
+  <event type="login" name="HungerLogin" script="hunger.lua" />
+  <event type="death" name="HungerDeath" script="hunger.lua" />
+  <event type="think" name="Hunger" script="hunger.lua" />
+</creaturescripts>
