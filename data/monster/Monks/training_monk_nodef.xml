@@ -17,11 +17,11 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-100" />
+		<attack name="melee" interval="2000" min="-100" max="-100" />
 	</attacks>
   
 	<defenses armor="0" defense="0">
-		<defense name="healing" interval="2000" chance="50" min="2500" max="10000">
+		<defense name="healing" interval="1000" chance="50" min="250 " max="500">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
     
@@ -44,6 +44,6 @@
 	</loot>
 
   <script>
-    <event name="criticoMonstros"/>
+    <!--<event name="criticoMonstros"/> -->
   </script>
 </monster>
